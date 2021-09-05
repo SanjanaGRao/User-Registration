@@ -13,18 +13,20 @@ public class UserRegistration
 	}
 	
 	/*
-	 * Method FirstNameCheck takes parameter firstName from the user
+	 * Method userNameCheck takes parameter firstName as well as last name from the user
 	 * UC 1 - First name starts with Cap and has minimum 3 characters - check 
+	 * UC 2 - As a User need to enter a valid Last Name.
+	 * Last name and First name start with Cap and have minimum 3 characters.
 	 * @returns true or false
 	 */
-	public boolean FirstNameCheck(String firstName)
+	public boolean userNameCheck(String userName)
 	{
-		if(!Character.isUpperCase(firstName.charAt(0)))
+		if(!Character.isUpperCase(userName.charAt(0)))
 		{
 			
 			return false;
 		}
-		else if(firstName.length() < 3)
+		else if(userName.length() <= 3)
 		{
 			return false;
 		}
