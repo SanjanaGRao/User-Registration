@@ -15,7 +15,7 @@ public class UserRegistration
 	public final String firstNamePattern = "^[A-Z]{1}[a-z]{2,}$";
 	public final String emailPattern = "[a-z0-9_]*[.a-z0-9_]*?@[a-z]*.(co|com|edu)(.[a-z])?$";
 	public final String mobileNoPattern = "^[0-9]{2}[0-9]{3,12}$";
-	public final String passwordPattern = "^(?=.*[0-9])(?=.*[A-Z]).{8,}";
+	public final String passwordPattern = "^(?=.*[~!@#$%^&*-+=()])(?=.*[0-9])(?=.*[A-Z]).{8,}";
 	
 	//Constructor to display welcome message 
 	public UserRegistration()
@@ -65,6 +65,7 @@ public class UserRegistration
 	 * Rule 1 – minimum 8 Characters
 	 * Rule 2 - Should have at least 1 Upper Case (UC 6)
 	 * Rule 3 – Should have at least 1 numeric number in the password (UC 7)
+	 * Rule 4 – Has exactly 1 Special Character
 	 * @returns true or false
 	 */
 	private boolean passwordCheck(String password)
