@@ -13,6 +13,7 @@ public class UserRegistration
 {
 	public static Scanner sc = new Scanner(System.in);
 	public final String firstNamePattern = "^[A-Z]{1}[a-z]{2,}$";
+	public final String lastNamePattern = "^[A-Z]{1}[a-z]{2,}$";
 	
 	//Constructor to display welcome message 
 	public UserRegistration()
@@ -32,13 +33,26 @@ public class UserRegistration
 		boolean s = newPattern.matcher(firstName).matches();
 		return s;
 	}
+	/*
+	 * Method lastNameCheck takes parameter firstName from the user
+	 * UC 2 - Last name starts with Cap and has minimum 3 characters - check 
+	 * Last name starts with Cap and have minimum 3 characters.
+	 * @returns true or false
+	 */
+	public boolean lastNameCheck(String lastName)
+	{
+		Pattern newPattern = Pattern.compile(lastNamePattern);
+		return newPattern.matcher(lastName).matches();
+	}
 
 	// This is the main function
 	public static void main(String[] args)
 	{
 		UserRegistration user = new UserRegistration();
 		System.out.println("Enter your First Name: ");
-		String firstName = sc.next();	
+		String firstName = sc.next();
+		System.out.println("Enter your Last Name: ");
+		String lastName = sc.next();
 		if(user.firstNameCheck(firstName)) 
 		{
 			System.out.println("The First Name entered is Valid.");
@@ -46,6 +60,14 @@ public class UserRegistration
 		else 
 		{
 			System.out.println("The First Name entered is Invalid.");
+		}
+		if(user.lastNameCheck(lastName)) 
+		{
+			System.out.println("The Last Name entered is Valid.");
+		} 
+		else 
+		{
+			System.out.println("The Last Name entered is Invalid.");
 		}
 	}	
 }
