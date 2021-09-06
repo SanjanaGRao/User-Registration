@@ -13,7 +13,7 @@ public class UserRegistration
 {
 	public static Scanner sc = new Scanner(System.in);
 	public final String firstNamePattern = "^[A-Z]{1}[a-z]{2,}$";
-	public final String emailPattern = "[a-z0-9_]*[.a-z0-9_]*?@[a-z]*.(co|com|edu)(.[a-z])?$";
+	public final String emailPattern = "[a-z0-9_+]*[.a-z0-9_]*?@[a-z]*.(co|com|edu)(.[a-z])?$";
 	public final String mobileNoPattern = "^[0-9]{2}[0-9]{3,12}$";
 	public final String passwordPattern = "^(?=.*[~!@#$%^&*-+=()])(?=.*[0-9])(?=.*[A-Z]).{8,}";
 	
@@ -74,6 +74,21 @@ public class UserRegistration
 		return newPattern.matcher(password).matches();
 	}	
 	
+	//Method for printing validate email output;
+	public void emailTest(String email) 
+	{
+		System.out.println("Sample Email Given to Test: ");
+		System.out.print("Sample Email " + email + " is: ");
+		if (emailCheck(email)) 
+		{
+			System.out.printf("Valid \n");
+		} 
+		else 
+		{
+			System.out.printf("Invalid \n");
+		}
+	}
+		
 	// This is the main function
 	public static void main(String[] args)
 	{
@@ -131,6 +146,13 @@ public class UserRegistration
 		{
 			System.out.println("The password entered is Invalid.");
 		}
+		
+		user.emailTest("abc@yahoo.com");
+		user.emailTest("abc123@gmail.a");
+		user.emailTest("abc.100@yahoo.com");
+		user.emailTest("abc@%*.com");
+		user.emailTest("abc+100@gmail.com");
+		user.emailTest("abc()*@gmail.com");
 	}
 
 }
