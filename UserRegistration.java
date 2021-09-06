@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 
 /*
  * UserRegistration is class which contains the user information
+ * @param firstNamePattern is a regex pattern used to validate first name
  * @author Sanjana Rao
  * @since 5-09-2021
  */
@@ -31,7 +32,7 @@ public class UserRegistration
 		boolean s = newPattern.matcher(firstName).matches();
 		return s;
 	}
-	
+
 	// This is the main function
 	public static void main(String[] args)
 	{
@@ -46,6 +47,5 @@ public class UserRegistration
 		{
 			System.out.println("The First Name entered is Invalid.");
 		}
-	}
-	
+	}	
 }
