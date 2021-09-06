@@ -14,6 +14,7 @@ public class UserRegistration
 	public static Scanner sc = new Scanner(System.in);
 	public final String firstNamePattern = "^[A-Z]{1}[a-z]{2,}$";
 	public final String lastNamePattern = "^[A-Z]{1}[a-z]{2,}$";
+	public final String emailPattern = "[a-z0-9_]*[.a-z0-9_]*?@[a-z]*.(co|com)(.[a-z])?$";
 	
 	//Constructor to display welcome message 
 	public UserRegistration()
@@ -34,7 +35,7 @@ public class UserRegistration
 		return s;
 	}
 	/*
-	 * Method lastNameCheck takes parameter firstName from the user
+	 * Method lastNameCheck takes parameter lastName from the user
 	 * UC 2 - Last name starts with Cap and has minimum 3 characters - check 
 	 * Last name starts with Cap and have minimum 3 characters.
 	 * @returns true or false
@@ -43,6 +44,17 @@ public class UserRegistration
 	{
 		Pattern newPattern = Pattern.compile(lastNamePattern);
 		return newPattern.matcher(lastName).matches();
+	}
+	/*
+	 * Method emailCheck takes parameter email from the user
+	 * UC 2 - enter a valid email - E.g. abc.xyz@bl.co.in 
+	 * Email has 3 mandatory parts (abc, bl & co) and 2 optional (xyz & in) with precise @ and . positions
+	 * @returns true or false
+	 */
+	public boolean emailCheck(String email)
+	{
+		Pattern newPattern = Pattern.compile(emailPattern);
+		return newPattern.matcher(email).matches();
 	}
 
 	// This is the main function
@@ -68,6 +80,16 @@ public class UserRegistration
 		else 
 		{
 			System.out.println("The Last Name entered is Invalid.");
+		}
+		System.out.println("Enter your Email ID: ");
+		String email = sc.next();
+		if(user.emailCheck(email)) 
+		{
+			System.out.println("The EMail ID entered is Valid.");
+		} 
+		else 
+		{
+			System.out.println("The EMail ID entered is Invalid.");
 		}
 	}	
 }
