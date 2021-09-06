@@ -15,6 +15,7 @@ public class UserRegistration
 	public final String firstNamePattern = "^[A-Z]{1}[a-z]{2,}$";
 	public final String emailPattern = "[a-z0-9_]*[.a-z0-9_]*?@[a-z]*.(co|com|edu)(.[a-z])?$";
 	public final String mobileNoPattern = "^[0-9]{2}[0-9]{3,12}$";
+	public final String passwordPattern = "^.{8,}";
 	
 	//Constructor to display welcome message 
 	public UserRegistration()
@@ -57,6 +58,17 @@ public class UserRegistration
 	{
 		Pattern newPattern = Pattern.compile(mobileNoPattern);
 		return newPattern.matcher(mobileNo).matches();
+	}
+	/*
+	 * Method passwordCheck takes parameter passwordNo from the user
+	 * UC 5 - follow pre-defined Password rules. 
+	 * Rule1 – minimum 8 Characters
+	 * @returns true or false
+	 */
+	private boolean passwordCheck(String password)
+	{
+		Pattern newPattern = Pattern.compile(passwordPattern);
+		return newPattern.matcher(password).matches();
 	}	
 	
 	// This is the main function
@@ -104,6 +116,17 @@ public class UserRegistration
 		else 
 		{
 			System.out.println("The Mobile number entered is Invalid.");
+		}
+		
+		System.out.println("Enter Password (min 8 characters, at least one 1 Upper Case, at least 1 number and 1 special character): ");
+		String password = sc.next();
+		if(user.passwordCheck(password)) 
+		{
+			System.out.println("The password entered is Valid.");
+		} 
+		else 
+		{
+			System.out.println("The password entered is Invalid.");
 		}
 	}
 
