@@ -13,7 +13,7 @@ public class UserRegistration
 {
 	public static Scanner sc = new Scanner(System.in);
 	public final String firstNamePattern = "^[A-Z]{1}[a-z]{2,}$";
-	public final String emailPattern = "[a-z0-9_+]*[.a-z0-9_]*?@[a-z]*.(co|com|edu)(.[a-z])?$";
+	public final String emailPattern = "[a-z0-9_+]*(.[a-z0-9_])*?@[a-z]*.(co|com|edu)(.[a-z])?$";
 	public final String mobileNoPattern = "^[0-9]{2}[0-9]{3,12}$";
 	public final String passwordPattern = "^(?=.*[~!@#$%^&*-+=()])(?=.*[0-9])(?=.*[A-Z]).{8,}";
 	
@@ -68,7 +68,7 @@ public class UserRegistration
 	 * Rule 4 – Has exactly 1 Special Character
 	 * @returns true or false
 	 */
-	private boolean passwordCheck(String password)
+	public boolean passwordCheck(String password)
 	{
 		Pattern newPattern = Pattern.compile(passwordPattern);
 		return newPattern.matcher(password).matches();
