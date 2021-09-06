@@ -1,4 +1,8 @@
-package com.JunitAssignment; 
+package com.JunitAssignment;
+
+import java.util.Scanner;
+import java.util.regex.Pattern;
+
 /*
  * UserRegistration is class which contains the user information
  * @author Sanjana Rao
@@ -6,6 +10,9 @@ package com.JunitAssignment;
  */
 public class UserRegistration 
 {
+	public static Scanner sc = new Scanner(System.in);
+	public final String firstNamePattern = "^[A-Z]{1}[a-z]{2,}$";
+	
 	//Constructor to display welcome message 
 	public UserRegistration()
 	{
@@ -13,24 +20,32 @@ public class UserRegistration
 	}
 	
 	/*
-	 * Method userNameCheck takes parameter firstName as well as last name from the user
+	 * Method firstNameCheck takes parameter firstName from the user
 	 * UC 1 - First name starts with Cap and has minimum 3 characters - check 
-	 * UC 2 - As a User need to enter a valid Last Name.
-	 * Last name and First name start with Cap and have minimum 3 characters.
+	 * First name starts with Cap and have minimum 3 characters.
 	 * @returns true or false
 	 */
-	public boolean userNameCheck(String userName)
+	public boolean firstNameCheck(String firstName)
 	{
-		if(!Character.isUpperCase(userName.charAt(0)))
-		{
-			
-			return false;
-		}
-		else if(userName.length() <= 3)
-		{
-			return false;
-		}
-		else
-			return true;
+		Pattern newPattern = Pattern.compile(firstNamePattern);
+		boolean s = newPattern.matcher(firstName).matches();
+		return s;
 	}
+	
+	// This is the main function
+	public static void main(String[] args)
+	{
+		UserRegistration user = new UserRegistration();
+		System.out.println("Enter your First Name: ");
+		String firstName = sc.next();	
+		if(user.firstNameCheck(firstName)) 
+		{
+			System.out.println("The First Name entered is Valid.");
+		} 
+		else 
+		{
+			System.out.println("The First Name entered is Invalid.");
+		}
+	}
+	
 }
