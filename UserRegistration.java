@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
  * UserRegistration is class which contains the user information
  * @param firstNamePattern is a regex pattern used to validate first name
  * @author Sanjana Rao
- * @since 5-09-2021
+ * @since 6-09-2021
  */
 public class UserRegistration 
 {
@@ -69,7 +69,10 @@ public class UserRegistration
 		return newPattern.matcher(password).matches();
 	}	
 	
-	//Method for printing validate email output;
+	/*
+	 * Method emailTest is used to validate the emails already provided
+	 * UC 9 - All sample emails must be passed.
+	 */
 	public void emailTest(String email) 
 	{
 		System.out.println("Sample Email Given to Test: ");
@@ -84,7 +87,15 @@ public class UserRegistration
 		}
 	}
 		
-	// This is the main function
+	/*
+	 * The main function asks the user to enter his/her information and calls the necessary method.
+	 * An object is created of class UserRegistration.
+	 * @param firstName asks the user to enter First Name and calls the function to validate user input.
+	 * @param lastName asks the user to input his Last Name and calls the function to validate user input.
+	 * @param email asks the user to enter email ID and calls the function to validate user input.
+	 * @param mobileNo asks the user to enter mobile number with country code and calls the function to validate user input.
+	 * @param password asks the user to enter password and calls the function to validate user input.
+	 */
 	public static void main(String[] args)
 	{
 		UserRegistration user = new UserRegistration();
