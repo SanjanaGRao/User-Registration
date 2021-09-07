@@ -12,11 +12,6 @@ import java.util.regex.Pattern;
 public class UserRegistration 
 {
 	public static Scanner sc = new Scanner(System.in);
-	public final String firstNamePattern = "^[A-Z]{1}[a-z]{2,}$";
-	public final String emailPattern = "[a-z0-9_+]*(.[a-z0-9_])*?@[a-z]*.(co|com|edu)(.[a-z])?$";
-	public final String mobileNoPattern = "^[0-9]{2}[0-9]{3,12}$";
-	public final String passwordPattern = "^(?=.*[~!@#$%^&*-+=()])(?=.*[0-9])(?=.*[A-Z]).{8,}";
-	
 	//Constructor to display welcome message 
 	public UserRegistration()
 	{
@@ -33,7 +28,7 @@ public class UserRegistration
 	 */
 	public boolean firstNameCheck(String firstName)
 	{
-		Pattern newPattern = Pattern.compile(firstNamePattern);
+		Pattern newPattern = Pattern.compile("^[A-Z]{1}[a-z]{2,}$");
 		boolean s = newPattern.matcher(firstName).matches();
 		return s;
 	}
@@ -45,7 +40,7 @@ public class UserRegistration
 	 */
 	public boolean emailCheck(String email)
 	{
-		Pattern newPattern = Pattern.compile(emailPattern);
+		Pattern newPattern = Pattern.compile("[a-z0-9_+]*(.[a-z0-9_])*?@[a-z]*.(co|com|edu)(.[a-z])?$");
 		return newPattern.matcher(email).matches();
 	}
 	/*
@@ -56,7 +51,7 @@ public class UserRegistration
 	 */
 	public boolean mobileNoCheck(String mobileNo) 
 	{
-		Pattern newPattern = Pattern.compile(mobileNoPattern);
+		Pattern newPattern = Pattern.compile("^[0-9]{2}[0-9]{3,12}$");
 		return newPattern.matcher(mobileNo).matches();
 	}
 	/*
@@ -70,7 +65,7 @@ public class UserRegistration
 	 */
 	public boolean passwordCheck(String password)
 	{
-		Pattern newPattern = Pattern.compile(passwordPattern);
+		Pattern newPattern = Pattern.compile("^(?=.*[~!@#$%^&*-+=()])(?=.*[0-9])(?=.*[A-Z]).{8,}");
 		return newPattern.matcher(password).matches();
 	}	
 	
