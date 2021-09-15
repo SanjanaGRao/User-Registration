@@ -56,7 +56,7 @@ public class UserRegistration
 	 */
 	public boolean mobileNoCheck(String mobileNo) throws UserRegistrationCustomException
 	{
-		Pattern newPattern = Pattern.compile("^[0-9]{2}[0-9]{3,12}$");
+		Pattern newPattern = Pattern.compile("^[0-9]{2}\s?[0-9]{10}$");
 		boolean ans = newPattern.matcher(mobileNo).matches();
 		if(ans==true)
 			return true;

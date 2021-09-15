@@ -1,6 +1,8 @@
 package com.JunitAssignment;
 
 import static org.junit.Assert.assertEquals;
+
+import org.junit.Assert;
 import org.junit.Test;
 
 public class UserRegistrationCheck 
@@ -9,80 +11,160 @@ public class UserRegistrationCheck
 	public void firstNameWhenInputIsValid() throws UserRegistrationCustomException 
 	{
 		UserRegistration obj = new UserRegistration();
-		boolean result = obj.firstNameCheck("Sanjana");
-		assertEquals(true,result);		
+		boolean result;
+		try
+		{
+			result = obj.firstNameCheck("Sanjana");
+			Assert.assertEquals(true,result);	
+		}
+		catch(UserRegistrationCustomException e)
+		{
+			System.out.println(e.getMessage());
+		}	
 	}
 
 	@Test
 	public void firstNameWhenInputIsInvalid() throws UserRegistrationCustomException 
 	{
 		UserRegistration obj = new UserRegistration();
-		boolean result = obj.firstNameCheck("sanjana");
-		assertEquals(true,result);	
+		boolean result;
+		try
+		{
+			result = obj.firstNameCheck("sanjana");
+			Assert.assertEquals(false,result);	
+		}
+		catch(UserRegistrationCustomException e)
+		{
+			System.out.println(e.getMessage());
+		}
 	}
 
 	@Test
-	public void LastNameWhenInputIsValid() throws UserRegistrationCustomException
+	public void lastNameWhenInputIsValid() throws UserRegistrationCustomException
 	{
 		UserRegistration obj = new UserRegistration();
-		boolean result = obj.firstNameCheck("Rao");
-		assertEquals(true,result);	
+		boolean result;
+		try
+		{
+			result = obj.firstNameCheck("Rao");
+			Assert.assertEquals(true,result);
+		}
+		catch(UserRegistrationCustomException e)
+		{
+			System.out.println(e.getMessage());
+		}
 	}
 
 	@Test
-	public void LastNameWhenInputIsInvalid() throws UserRegistrationCustomException
+	public void lastNameWhenInputIsInvalid() throws UserRegistrationCustomException
 	{
 		UserRegistration obj = new UserRegistration();
-		boolean result = obj.firstNameCheck("rao");
-		assertEquals(true,result);	
+		boolean result;
+		try
+		{
+			result = obj.firstNameCheck("rao");
+			Assert.assertEquals(false,result);	
+		}
+		catch(UserRegistrationCustomException e)
+		{
+			System.out.println(e.getMessage());
+		}
 	}
 
 	@Test
-	public void EmailWhenInputIsValid() throws UserRegistrationCustomException
+	public void emailWhenInputIsValid() throws UserRegistrationCustomException
 	{
 		UserRegistration obj = new UserRegistration();
-		boolean result = obj.emailCheck("sanjanagrao99@gmail.com");
-		assertEquals(true,result);	
+		boolean result;
+		try
+		{
+			result = obj.emailCheck("sanjanagrao99@gmail.com");
+			Assert.assertEquals(true,result);
+		}	
+		catch(UserRegistrationCustomException e)
+		{
+			System.out.println(e.getMessage());
+		}
 	}
 
 	@Test
-	public void EmailWhenInputIsInvalid() throws UserRegistrationCustomException
+	public void emailWhenInputIsInvalid() throws UserRegistrationCustomException
 	{
 		UserRegistration obj = new UserRegistration();
-		boolean result = obj.emailCheck("sanjana@1.gmail.in.com");
-		assertEquals(true,result);	
+		boolean result;
+		try
+		{
+			result = obj.emailCheck("sanjana@1.gmail.in.com");
+			Assert.assertEquals(false,result);
+		}
+		catch(UserRegistrationCustomException e)
+		{
+			System.out.println(e.getMessage());
+		}
 	}
 
 	@Test
-	public void MobileNoWhenInputIsValid() throws UserRegistrationCustomException
+	public void mobileNoWhenInputIsValid() throws UserRegistrationCustomException
 	{
 		UserRegistration obj = new UserRegistration();
-		boolean result = obj.mobileNoCheck("911234567890");
-		assertEquals(true,result);	
+		boolean result;
+		try
+		{
+			result = obj.mobileNoCheck("911234567890");
+			Assert.assertEquals(true,result);	
+		}
+		catch(UserRegistrationCustomException e)
+		{
+			System.out.println(e.getMessage());
+		}
 	}
 
 	@Test
-	public void MobileNoWhenInputIsInvalid() throws UserRegistrationCustomException
+	public void mobileNoWhenInputIsInvalid() throws UserRegistrationCustomException
 	{
 		UserRegistration obj = new UserRegistration();
-		boolean result = obj.mobileNoCheck("123456789X");
-		assertEquals(true,result);	
+		boolean result;
+		try
+		{
+			result = obj.mobileNoCheck("123456789X");
+			Assert.assertEquals(false,result);
+		}	
+		catch(UserRegistrationCustomException e)
+		{
+			System.out.println(e.getMessage());
+		}
 	}
 
 	@Test
-	public void PasswordWhenInputIsValid() throws UserRegistrationCustomException
+	public void passwordWhenInputIsValid() throws UserRegistrationCustomException
 	{
 		UserRegistration obj = new UserRegistration();
-		boolean result = obj.passwordCheck("Hisanjana3$");
-		assertEquals(true,result);	
+		boolean result;
+		try
+		{
+			result = obj.passwordCheck("Hisanjana3$");
+			Assert.assertEquals(true,result);
+		}	
+		catch(UserRegistrationCustomException e)
+		{
+			System.out.println(e.getMessage());
+		}
 	}
 
 	@Test
-	public void PasswordWhenInputIsInvalid() throws UserRegistrationCustomException
+	public void passwordWhenInputIsInvalid() throws UserRegistrationCustomException
 	{
 		UserRegistration obj = new UserRegistration();
-		boolean result = obj.passwordCheck("itssanjana");
-		assertEquals(true,result);	
+		boolean result;
+		try
+		{
+			result = obj.passwordCheck("itssanjana");
+			Assert.assertEquals(false,result);	
+		}		
+		catch(UserRegistrationCustomException e)
+		{
+			System.out.println(e.getMessage());
+		}
 	}
 
 }
